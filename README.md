@@ -23,6 +23,6 @@ Set starting orders for each company as
 ```
 
 ## Outcomes
-* API specification document (eg. OpenAPI in YAML format - you can use something like https://www.apibldr.com/ to build this)
+* API specification document (eg. OpenAPI in YAML format - use something like https://www.apibldr.com/)
 * dotnet core project
 * simple unit tests

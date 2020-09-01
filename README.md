@@ -26,3 +26,6 @@ Set starting orders for each company as
 * API specification - Code generated (eg. swagger) or OpenAPI yaml document
 * dotnet core project
 * testing (minimal tests, no need for complete test coverage)
+
+## Submission
+Send through a public link to your GIT repository prior to interview.

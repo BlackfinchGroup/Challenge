@@ -1,31 +1,25 @@
-# Stock Trading Platform
-An Restful API implementation of a simple stock trading platform.
+# Lending Platform
+Build a simple Console application using the technology of your choice (preferably C#) that enables the writing and reporting of loans as per the requirements below. This should be approached as a way that can demonstrate your process to solving problems (any required infrastructure can simply be mocked), and does not need to be built to a production standard. Instead the exercise should be timeboxed to no longer than an hour. Notes can be taken of any assumptions made, and also any other considerations or improvements that you might make if this was a production application.
 
 ## Requirements
-Create an API specification and build an API in dotnet core for a stock trading platform with the following requirements, note that no database setup is required - use a singleton for any storage needs spanning multiple requests.
-
-* Get *companies* - list of predefined companies with the following symbols - `AMZN`, `TSLA` and `BLKFNCH`.
-* Companies can issue *shares*, a quantity of shares are issued at a set price.
-* Create *orders*
-  * An order consists of a `symbol`, `min` order price, `max` order price, `quantity`, and `type` (`buy` or `sell`).
-* Get outstanding orders - an order has a `status` of `processing` or `complete`.
-* Get status of a specific order
-* If an order is created that can't be satisfied, it remains in a backlog queue until it is able to be addressed by an incoming order.
-
-Set initial shares for each company as 100,000 @ £40 for `AMZN`, 10,000 @ £420 for `TSLA` and 600 @ £60 for `BLKFNCH`.
-Set starting orders for each company as 
-```
-[
-  { "symbol":"AMZN", "min":40, "max":40, "quantity":100, "type":"buy" },
-  { "symbol":"TSLA", "min":200, "max":1000, "quantity":2000, "type":"buy" },
-  { "symbol":"BLKFNCH", "min":60, "max":60, "quantity":30, "type":"buy" }
-]
-```
-
-## Outcomes
-* API specification - Code generated (eg. swagger) or OpenAPI yaml document
-* dotnet core project
-* testing (minimal tests, no need for complete test coverage)
+User inputs that the application should require:
+* Amount that the loan is for in GBP
+* The value of the asset that the loan will be secured against
+* The credit score of the applicant (between 1 and 999)
+Metrics that the application should output:
+* Whether or not the applicant was successful
+* The total number of applicants to date, broken down by their success status
+* The total value of loans written to date
+* The mean average Loan to Value of all applications received to date
+    * Loan to Value (LTV) is the amount that the loan is for, expressed as a percentage of the value of the asset that the loan will be secured against.
+Business rules used to derive whether or not the applicant was successful:
+* If the value of the loan is more than £1.5 million or less than £100,000 then the application must be declined
+* If the value of the loan is £1 million or more then the LTV must be 60% or less and the credit score of the applicant must be 950 or more
+* If the value of the loan is less than £1 million then the following rules apply:
+    * If the LTV is less than 60%, the credit score of the applicant must be 750 or more
+    * If the LTV is less than 80%, the credit score of the applicant must be 800 or more
+    * If the LTV is less than 90%, the credit score of the applicant must be 900 or more
+    * If the LTV is 90% or more, the application must be declined
 
 ## Submission
 Send through a public link to your GIT repository prior to interview.
